@@ -1,0 +1,10 @@
+.typesLayer {
+    margin: 1em auto 2em;
+    padding: 2em 1em;
+    text-align: center;
+    height: 300px;
+    width: 80%;
+    background-color: lightcyan;
+    box-shadow: 5px 4px 15px black;
+    border-radius: 30px;
+}

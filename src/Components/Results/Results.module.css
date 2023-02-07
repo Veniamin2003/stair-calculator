@@ -1,0 +1,28 @@
+.typesLayer {
+    margin: 10px 20px 20px 30px;
+}
+
+ul {
+    list-style-image: url(../../Images/StairsTypes/Result/icon.png);
+    background-size: 1.3rem 1.3rem;
+}
+
+.btn {
+    background-color:rgba(27,38,44, 0.9); /* Green */
+    border: none;
+    color: white;
+    border-radius: 30px;
+    padding: 15px 42px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(187,225,250, 1);
+}
+
+.btn:hover {
+    transition: 0.2s;
+    background-color: rgba(15,76,117, 0.8);
+    box-shadow: 0 7px 8px 0 rgba(0,0,0,0.24), 0 10px 25px 0 rgba(0,0,0,0.19);
+}

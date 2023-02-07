@@ -1,0 +1,20 @@
+.viewBlock {
+    grid-area: view;
+}
+
+.imageBlock {
+    text-align: center;
+    height: 26em;
+    width: 26em;
+    margin-left: 0;
+    margin-right:0;
+}
+
+.allBlock {
+    margin: 2em 0 2em 0;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+}
