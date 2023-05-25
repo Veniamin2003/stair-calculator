@@ -1,6 +1,5 @@
 import React from "react";
 import {connect} from "react-redux";
-import {countAllSumAC} from "../../redux/types-reducer";
 import Results from "./Results";
 
 let mapStateToProps = (state) => {
@@ -10,13 +9,7 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-    return {
-        countAllSum: () => {
-            debugger
-            let action = countAllSumAC();
-            dispatch(action);
-        }
-    }
+    return {}
 }
 
 const ResultsContainer = connect(mapStateToProps, mapDispatchToProps)(Results);

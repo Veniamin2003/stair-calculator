@@ -6,8 +6,8 @@ function StairsTypes(props) {
 debugger
     let state = props.typesPage
 
-    let onTypeChange = (price, selectedId) => {
-        props.updateType(price, selectedId);
+    let onTypeChange = (price, selectedId, name) => {
+        props.updateType(price, selectedId, name);
     }
 
     return (

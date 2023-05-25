@@ -26,3 +26,16 @@ ul {
     background-color: rgba(15,76,117, 0.8);
     box-shadow: 0 7px 8px 0 rgba(0,0,0,0.24), 0 10px 25px 0 rgba(0,0,0,0.19);
 }
+
+.btn_block {
+    margin-top: 10rem;
+    text-align: center;
+}
+
+.price p {
+    font-size: 22px;
+    font-weight: bold;
+}
+.description {
+    padding-top: 20px;
+}

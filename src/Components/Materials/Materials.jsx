@@ -3,12 +3,10 @@ import s from './../ContainerCSSModule/Container.module.css'
 import MaterialsItem from "./MaterialsItem";
 
 function Materials(props) {
-    debugger
     let state = props.typesPage
 
-    let updateMaterial = (price, selectedId) => {
-        debugger
-        props.updateMaterial(price, selectedId);
+    let updateMaterial = (price, selectedId, name) => {
+        props.updateMaterial(price, selectedId, name);
     }
     return (
         <div className={s.typesLayer}>

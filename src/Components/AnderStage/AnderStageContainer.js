@@ -5,7 +5,6 @@ import AnderStage from "./AnderStage/AnderStage";
 
 
 let mapStateToProps = (state) => {
-    debugger
     return {
         typesPage: state.typesPage
     }
@@ -13,9 +12,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateAnderStage: (price, selectedId) => {
-            debugger
-            let action = updateAnderStageAC(price, selectedId);
+        updateAnderStage: (price, selectedId, name) => {
+            let action = updateAnderStageAC(price, selectedId, name);
             dispatch(action);
         }
     }

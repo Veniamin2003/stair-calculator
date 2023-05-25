@@ -3,12 +3,10 @@ import AnderStageItem from "./AnderStageItem/AnderStageItem";
 import s from './../../ContainerCSSModule/Container.module.css'
 
 function AnderStage(props) {
-    debugger
     let state = props.typesPage
 
-    let updateAnderStage = (price, selectedId) => {
-        debugger
-        props.updateAnderStage(price, selectedId);
+    let updateAnderStage = (price, selectedId, name) => {
+        props.updateAnderStage(price, selectedId, name);
     }
     return (
         <div className={s.typesLayer}>

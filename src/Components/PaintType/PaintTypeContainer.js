@@ -6,7 +6,6 @@ import PaintType from "./PaintType";
 
 
 let mapStateToProps = (state) => {
-    debugger
     return {
         typesPage: state.typesPage
     }
@@ -14,9 +13,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updatePaintTypeId: (price, selectedId) => {
-            debugger
-            let action = updatePaintTypeAC(price, selectedId);
+        updatePaintTypeId: (price, selectedId, name) => {
+            let action = updatePaintTypeAC(price, selectedId, name);
             dispatch(action);
         }
     }

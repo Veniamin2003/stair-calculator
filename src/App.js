@@ -8,14 +8,18 @@ import PaintTypeContainer from "./Components/PaintType/PaintTypeContainer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import StairTypeViewContainer from "./Components/ImageView/StairsTypeView/StairTypeViewContainer/StairTypeViewContainer";
+import Footer from "./Components/Footer/Footer";
+import NavCalc from "./Components/NavTop/NavCalc";
+import NavbarContainer from "./Components/Navbar/NavbarContainer";
 
 function App(props) {
     debugger
     return (
         <BrowserRouter>
+            <NavCalc />
             <div className='app-wrapper'>
                 <StairTypeViewContainer />
-                <Navbar/>
+                <NavbarContainer/>
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path='/'
@@ -39,8 +43,12 @@ function App(props) {
                         <Route path='/results'
                                element={<ResultsContainer />}/>
                     </Routes>
+
+
                 </div>
+
             </div>
+            <Footer />
         </BrowserRouter>
 
 

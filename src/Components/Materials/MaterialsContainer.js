@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import Materials from "./Materials";
 
 let mapStateToProps = (state) => {
-    debugger
     return {
         typesPage: state.typesPage
     }
@@ -12,9 +11,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateMaterial: (price, selectedId) => {
-            debugger
-            let action = updateMaterialAC(price, selectedId);
+        updateMaterial: (price, selectedId, name) => {
+            let action = updateMaterialAC(price, selectedId, name);
             dispatch(action);
         }
     }

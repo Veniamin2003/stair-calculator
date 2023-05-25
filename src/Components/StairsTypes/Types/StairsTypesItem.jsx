@@ -7,7 +7,7 @@ function StairsTypesItem(props) {
 
     const containerTypeClass = isActive ? s.containerTypeActive : s.containerType
     return (
-        <div key={props.id} className={containerTypeClass} onClick={() => props.onTypeChange(props.price, props.id)}>
+        <div key={props.id} className={containerTypeClass} onClick={() => props.onTypeChange(props.price, props.id, props.name)}>
             <div className={s.parent}>
                 <img src={props.img}/>
                 <div className={s.child}>

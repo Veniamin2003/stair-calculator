@@ -98,77 +98,65 @@ vertical-align: middle;
 }
 
 .containerType {
-    text-align: center;
     display: inline-block;
     position: relative;
     width: 30%;
-    background: rgba(0, 0, 0, 1);
-    margin: 15px 15px;
-    border: 2px solid rgba(34, 36, 66, 0.9);
+
     border-radius: 10px;
     padding-top: 10px;
 }
 
 .containerType::before {
-    content: "";
-    background-image: url("https://i.pinimg.com/564x/cd/aa/a7/cdaaa7987cb2c55bb13585c522628acb.jpg");
-    filter: blur(3px);
-    -webkit-filter: blur(4px);
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.4;
+
 }
 
 .parent {
     text-align: center;
-    color: lavender;
+
     font-weight: bold;
     font-size: 18px;
     position: relative;
 }
 .parent img {
-    width: 90%;
-    height: 300px;
-    border-radius: 10px;
-    filter: blur(1px);
-    -webkit-filter: blur(1px);
 }
 
-.child {
-    position: absolute;
-    width: 90%;
-    height: 300px;
-    background: rgba(34, 36, 66, 0.1);
-    border-radius: 10px;
-    bottom: 52px;
-    left: 25px;
+.child textarea {
+    height: auto;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: 2px solid var(--color-primary-variant);
+    resize: none;
+    color: black;
 }
 
 .child div {
+    text-align: left;
     margin: 10px;
+}
+
+.child div p {
+    padding-bottom: 10px;
 }
 .name h2 {
     font-family: 'Ubuntu Condensed', sans-serif;
     position: relative;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 10px;
     padding-bottom: 10px;
-    color: lavender;
+    color: black;
     padding-top: 10px;
 }
 
-textarea {
+/*textarea {
     font-size: 16px;
     width: 180px;
     height: 30px;
     resize: none;
     border-radius: 10px;
-}
+}*/
 
 p{
     color: black;

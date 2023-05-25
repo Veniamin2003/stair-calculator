@@ -23,23 +23,23 @@ function CountStages(props) {
     return (
         <div className={s.typesLayer}>
             <div className={s.containerType}>
+                <div className={s.name}>
+                    <h2>Размеры</h2>
+                </div>
                 <div className={s.parent}>
-                    <img src={photo}/>
                     <div className={s.child}>
                         <div>
-                            <p>Ширина ступени</p>
+                            <p>Ширина ступени, см</p>
                             <textarea onBlur={onWidthPagesChange}
                                       ref={newCountElementOne}/>
                         </div>
                         <div>
-                            <p>Высота проема</p>
+                            <p>Высота проема, см</p>
                             <textarea onBlur={onHeightPagesChange}
                                       ref={newCountElementTwo}/>
                         </div>
                     </div>
-                    <div className={s.name}>
-                        <h2>Размеры</h2>
-                    </div>
+
                 </div>
             </div>
         </div>

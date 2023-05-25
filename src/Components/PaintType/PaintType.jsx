@@ -2,15 +2,11 @@ import React from 'react'
 import s from './../ContainerCSSModule/Container.module.css'
 import PaintTypeItem from "./PaintTypeItem";
 
-
-
 function PaintType(props) {
-    debugger
     let state = props.typesPage
 
-    let updatePaintType = (price, selectedId) => {
-        debugger
-        props.updatePaintTypeId(price, selectedId);
+    let updatePaintType = (price, selectedId, name) => {
+        props.updatePaintTypeId(price, selectedId, name);
     }
     return (
         <div>

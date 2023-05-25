@@ -104,40 +104,42 @@ let initialState = {
     countStages: 0,
     stairsWidth: 0,
     stairsHeight: 0,
-    marchWidthSum: 0
+    marchWidthSum: 0,
+
+    stairTypeName: "<<не выбрано>>",
+    materialName: "<<не выбрано>>",
+    underStageType: "<<не выбрано>>",
+    paintTypeName: "<<не выбрано>>"
 };
 
 const typesReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_TYPE:
-            debugger
             return {
                 ...state,
                 typeSum: action.price,
-                selectedStairsTypesId: action.selectedId
+                selectedStairsTypesId: action.selectedId,
+                stairTypeName: action.stairTypeName
             }
 
         case UPDATE_MATERIAL:
-            debugger
             return {
                 ...state,
                 materialSum: action.price,
-                selectedMaterialId: action.selectedId
+                selectedMaterialId: action.selectedId,
+                materialName: action.materialName
             };
 
         case UPDATE_WIDTH_STAGES:
-            debugger
             let a = action.newCount
             let b = 0
 
             if (a < 100 && a > 0)
             {
-                debugger
                 b = 300
             }
             else if (a > 100 && a < 200)
             {
-                debugger
                 b = 600
             }
             else {
@@ -153,7 +155,6 @@ const typesReducer = (state = initialState, action) => {
             };
 
         case UPDATE_HEIGHT_STAGES:
-
             return {
                 ...state,
                 stairsHeight: action.newCount,
@@ -161,7 +162,6 @@ const typesReducer = (state = initialState, action) => {
             };
 
         case COUNT_ALL_SUM:
-            debugger
             return {
                 ...state,
                 allSum: (state.typeSum + state.materialSum + state.anderStageSum
@@ -169,21 +169,19 @@ const typesReducer = (state = initialState, action) => {
             };
 
         case UPDATE_ANDER_STAGE:
-            debugger
-
-
             return {
                 ...state,
                 anderStageSum: action.price,
-                selectedAnderStageId: action.selectedId
+                selectedAnderStageId: action.selectedId,
+                underStageType: action.underStageType
             };
 
         case UPDATE_PAINT_TYPE:
-            debugger
             return {
                 ...state,
                 paintTypeSum: action.price,
-                selectedPaintTypeId: action.selectedId
+                selectedPaintTypeId: action.selectedId,
+                paintTypeName: action.paintTypeName
             };
 
         default:
@@ -191,13 +189,13 @@ const typesReducer = (state = initialState, action) => {
     }
 }
 
-export const updateTypeAC = (price, selectedId) => ({type: UPDATE_TYPE, price: price, selectedId: selectedId})
-export const updateMaterialAC = (price, selectedId) => ({type: UPDATE_MATERIAL, price: price, selectedId: selectedId})
+export const updateTypeAC = (price, selectedId, name) => ({type: UPDATE_TYPE, price: price, selectedId: selectedId, stairTypeName: name})
+export const updateMaterialAC = (price, selectedId, name) => ({type: UPDATE_MATERIAL, price: price, selectedId: selectedId, materialName: name})
 export const updateWidthStagesAC = (count) => ({type: UPDATE_WIDTH_STAGES, newCount: count})
 export const updateHeightStagesAC = (count) => ({type: UPDATE_HEIGHT_STAGES, newCount: count})
 export const countAllSumAC = () => ({type: COUNT_ALL_SUM})
-export const updateAnderStageAC = (price, selectedId) => ({type: UPDATE_ANDER_STAGE, price: price, selectedId: selectedId})
-export const updatePaintTypeAC = (price, selectedId) => ({type: UPDATE_PAINT_TYPE, price: price, selectedId: selectedId})
+export const updateAnderStageAC = (price, selectedId, name) => ({type: UPDATE_ANDER_STAGE, price: price, selectedId: selectedId, underStageType: name})
+export const updatePaintTypeAC = (price, selectedId, name) => ({type: UPDATE_PAINT_TYPE, price: price, selectedId: selectedId, paintTypeName: name})
 
 
 export default typesReducer;
