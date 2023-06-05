@@ -40,7 +40,7 @@ class NavCalc extends Component {
 
                             {/*<li><a href="#price_photos">Фото работ</a></li>
                             <li><a href="#contact">Контакты</a></li>*/}
-                            <li><a href="/">На главную</a></li>
+                            <li><a href="http://remonthold74.tilda.ws/srair-calculator">Перейти на сайт</a></li>
                             <li className="nav_phone_mbl" >
                                 <a href="tel:89085712253">+7(992)503-64-01</a>
                                 <p>Звонок бесплатный по РФ</p>
