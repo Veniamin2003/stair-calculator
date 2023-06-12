@@ -26,11 +26,23 @@ const Navbar = (props) => {
             </div>
 
             <div className={s.item}>
+                <NavLink to='/rails' className={navData => navData.isActive ? s.active : s.item}>Наличие перил</NavLink>
+            </div>
+
+            <div className={s.item}>
                 <NavLink to='/stair-size' className={navData => navData.isActive ? s.active : s.item}><div className={s.text}>Размеры</div></NavLink>
             </div>
 
+            {/*<div className={s.item}>
+                <NavLink to='/results' className={navData => navData.isActive ? s.active : s.item}><div className={s.text}>К результатам</div></NavLink>
+            </div>*/}
+
             <div className={s.item} onClick={countAllSum}>
-                <NavLink to='/results' className={navData => navData.isActive ? s.active : s.item }><div className={s.text}>Заявка на рассчет стоимости</div></NavLink>
+                <NavLink to='/form' className={navData => navData.isActive ? s.active : s.item }><div className={s.text}>Заявка на рассчет стоимости</div></NavLink>
+            </div>
+
+            <div className={s.item}>
+                <NavLink to='/export' className={navData => navData.isActive ? s.active : s.item }><div className={s.text}>Экспорт в Эксель</div></NavLink>
             </div>
         </nav>
     )

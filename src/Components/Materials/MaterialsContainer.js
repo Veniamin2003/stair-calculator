@@ -14,7 +14,7 @@ let mapDispatchToProps = (dispatch) => {
         updateMaterial: (price, selectedId, name) => {
             let action = updateMaterialAC(price, selectedId, name);
             dispatch(action);
-        }
+        },
     }
 }
 

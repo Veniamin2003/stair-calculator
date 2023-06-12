@@ -6,7 +6,6 @@ import {MdOutlineEmail} from "react-icons/md"
 import {FaTelegramPlane} from "react-icons/fa"
 import {ImWhatsapp} from "react-icons/im"
 import emailjs from "emailjs-com"
-import {NavLink} from "react-router-dom";
 
 const Contact = ({text}) => {
     const form = useRef();
@@ -27,7 +26,6 @@ const Contact = ({text}) => {
             <div className="header__text__fridge">
                 <h3>Оставьте заявку на полный расчет прямо сейчас</h3>
             </div>
-
 
             <div className="container contact__container">
 
@@ -61,9 +59,7 @@ const Contact = ({text}) => {
                     <textarea name="comment" rows="2" placeholder="Оставьте комментарий" required  />
                     <textarea name="message" rows="15" placeholder="Опишите параметры вашей лестницы" value={text} required  />
                     <button type="submit" className="btn btn-primary">Жду вашего звонка</button>
-                    {/*<div className="btn btn-primary-two" type="submit">
-                        <NavLink to='/thanks'>Отправить сообщение</NavLink>
-                    </div>*/}
+
                 </form>
             </div>
         </section>

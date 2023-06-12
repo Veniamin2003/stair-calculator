@@ -12,12 +12,12 @@ const Footer = () => {
 
                 <ui className="permalinks">
                     <li><a href="#">Домой</a></li>
-                    <li><a href="#">Обо мне</a></li>
+                    {/*<li><a href="#">Обо мне</a></li>
                     <li><a href="#">Мой опыт</a></li>
                     <li><a href="#">Мои навыки</a></li>
                     <li><a href="#">Портфолио</a></li>
                     <li><a href="#">Отзывы</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Контакты</a></li>*/}
                 </ui>
 
                 <div className="footer__social">

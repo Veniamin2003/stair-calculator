@@ -1,0 +1,19 @@
+{
+  "railTypes":
+          [
+            {
+              "id": "1",
+              "name": "Открытая, без перил",
+              "img": "img/Rail/rail-1.jpg",
+              "price": "0",
+              "description": "Описание прямой лестницы"
+            },
+            {
+              "id": "2",
+              "name": "Закрытая, с перилами",
+              "img": "img/Rail/rail-2.jpg",
+              "price": "1000",
+              "description": "Описание прямой лестницы"
+            }
+          ]
+}

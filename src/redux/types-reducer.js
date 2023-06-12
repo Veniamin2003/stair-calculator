@@ -29,15 +29,21 @@ import paintView2 from "../Images/StairsTypes/paint/2View.png"
 import paint3 from "../Images/StairsTypes/paint/3.jpg"
 import paintView3 from "../Images/StairsTypes/paint/3View.png"
 
-
-
 const UPDATE_TYPE = 'UPDATE_TYPE';
 const UPDATE_MATERIAL = 'UPDATE_MATERIAL';
+
 const UPDATE_WIDTH_STAGES = 'UPDATE_WIDTH_STAGES';
 const UPDATE_HEIGHT_STAGES = 'UPDATE_HEIGHT_STAGES';
+const UPDATE_LENGTH_STAGES = 'UPDATE_LENGTH_STAGES';
+const UPDATE_THICK_STAGES = 'UPDATE_THICK_STAGES';
+const UPDATE_LEDGE_STAGES = 'UPDATE_LEDGE_STAGES';
+const UPDATE_STRING_STAGES = 'UPDATE_STRING_STAGES';
+
 const COUNT_ALL_SUM = 'COUNT_ALL_SUM';
 const UPDATE_ANDER_STAGE = 'UPDATE_ANDER_STAGE';
 const UPDATE_PAINT_TYPE = 'UPDATE_PAINT_TYPE';
+const UPDATE_RAIL_TYPE = 'UPDATE_RAIL_TYPE';
+
 
 let initialState = {
     stairsTypes: [
@@ -78,8 +84,6 @@ let initialState = {
                 {id: 3, name:'Тонировка', img: paint3, viewImg: paintView3, price: 700, description:"Лестница принимает свой истиный облик. Только натуральный цвет"},
             ],
             selectedPaintTypeId: 1,
-
-
         },
 
     stairsTypesParams : {
@@ -96,17 +100,27 @@ let initialState = {
         selectedAnderStageId: 1
     },
 
+    railParams: {
+        railTypeSum: 0,
+        selectedRailId: 1,
+    },
 
 
     paintTypeSum: 0,
     ppp: 0,
     allSum: 0,
+
     countStages: 0,
     stairsWidth: 0,
     stairsHeight: 0,
+    stairsLength: 0,
+    stairsThick: 0,
+    stairsLedge: 0,
+    stairsString: 0,
     marchWidthSum: 0,
 
     stairTypeName: "<<не выбрано>>",
+    railTypeName: "<<не выбрано>>",
     materialName: "<<не выбрано>>",
     underStageType: "<<не выбрано>>",
     paintTypeName: "<<не выбрано>>"
@@ -128,6 +142,14 @@ const typesReducer = (state = initialState, action) => {
                 materialSum: action.price,
                 selectedMaterialId: action.selectedId,
                 materialName: action.materialName
+            };
+
+        case UPDATE_RAIL_TYPE:
+            return {
+                ...state,
+                railTypeSum: action.price,
+                selectedRailId: action.selectedId,
+                railTypeName: action.railTypeName
             };
 
         case UPDATE_WIDTH_STAGES:
@@ -161,11 +183,36 @@ const typesReducer = (state = initialState, action) => {
                 countStages: Math.round(action.newCount / 14)
             };
 
+        case UPDATE_LENGTH_STAGES:
+            return {
+                ...state,
+                stairsLength: action.newCount,
+            };
+
+        case UPDATE_THICK_STAGES:
+            return {
+                ...state,
+                stairsThick: action.newCount,
+            };
+
+        case UPDATE_LEDGE_STAGES:
+            return {
+                ...state,
+                stairsLedge: action.newCount,
+            };
+
+        case UPDATE_STRING_STAGES:
+            return {
+                ...state,
+                stairsString: action.newCount,
+            };
+
         case COUNT_ALL_SUM:
+            debugger
             return {
                 ...state,
                 allSum: (state.typeSum + state.materialSum + state.anderStageSum
-                    + state.paintTypeSum + state.marchWidthSum ) * state.countStages
+                    + state.paintTypeSum + state.marchWidthSum + +state.railTypeSum) * state.countStages
             };
 
         case UPDATE_ANDER_STAGE:
@@ -191,12 +238,19 @@ const typesReducer = (state = initialState, action) => {
 
 export const updateTypeAC = (price, selectedId, name) => ({type: UPDATE_TYPE, price: price, selectedId: selectedId, stairTypeName: name})
 export const updateMaterialAC = (price, selectedId, name) => ({type: UPDATE_MATERIAL, price: price, selectedId: selectedId, materialName: name})
+
 export const updateWidthStagesAC = (count) => ({type: UPDATE_WIDTH_STAGES, newCount: count})
 export const updateHeightStagesAC = (count) => ({type: UPDATE_HEIGHT_STAGES, newCount: count})
+export const updateLengthStagesAC = (count) => ({type: UPDATE_LENGTH_STAGES, newCount: count})
+export const updateThickAC = (count) => ({type: UPDATE_THICK_STAGES, newCount: count})
+export const updateLedgeAC = (count) => ({type: UPDATE_LEDGE_STAGES, newCount: count})
+export const updateStringAC = (count) => ({type: UPDATE_STRING_STAGES, newCount: count})
+
+
 export const countAllSumAC = () => ({type: COUNT_ALL_SUM})
 export const updateAnderStageAC = (price, selectedId, name) => ({type: UPDATE_ANDER_STAGE, price: price, selectedId: selectedId, underStageType: name})
 export const updatePaintTypeAC = (price, selectedId, name) => ({type: UPDATE_PAINT_TYPE, price: price, selectedId: selectedId, paintTypeName: name})
-
+export const updateRailTypeAC = (price, selectedId, name) => ({type: UPDATE_RAIL_TYPE, price: price, selectedId: selectedId, railTypeName: name})
 
 export default typesReducer;
 

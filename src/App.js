@@ -11,6 +11,11 @@ import StairTypeViewContainer from "./Components/ImageView/StairsTypeView/StairT
 import Footer from "./Components/Footer/Footer";
 import NavCalc from "./Components/NavTop/NavCalc";
 import NavbarContainer from "./Components/Navbar/NavbarContainer";
+import {ExportExcel} from "./Pages/ExportPage/ExportExcel";
+import ExportExcelContainer from "./Pages/ExportPage/ExportExcelContainer";
+import RailTypeContainer from "./Components/RailType/RailTypeContainer";
+
+import img from "./Images/wood-bg.jpg"
 
 function App(props) {
     debugger
@@ -23,10 +28,13 @@ function App(props) {
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path='/'
-                               element={<StairsTypesContainer/>}/>
+                               element={<StairsTypesContainer />}/>
 
                         <Route path='/stair-types'
-                               element={<StairsTypesContainer/>}/>
+                               element={<StairsTypesContainer />}/>
+
+                        <Route path='/rails'
+                               element={<RailTypeContainer />}/>
 
                         <Route path='/stair-material'
                                element={<MaterialsContainer />}/>
@@ -40,8 +48,11 @@ function App(props) {
                         <Route path='/stair-size'
                                element={<CountStagesContainer />}/>
 
-                        <Route path='/results'
+                        <Route path='/form'
                                element={<ResultsContainer />}/>
+
+                        <Route path='/export'
+                               element={<ExportExcelContainer />}/>
                     </Routes>
 
 

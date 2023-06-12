@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import StairsTypes from "./StairsTypes";
 
 let mapStateToProps = (state) => {
-    debugger
     return {
         typesPage: state.typesPage
     }

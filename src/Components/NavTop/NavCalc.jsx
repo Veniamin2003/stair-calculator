@@ -27,7 +27,8 @@ class NavCalc extends Component {
                         {/*<CgSmartHomeRefrigerator className="logo_navbar"/>*/}
                     </a >
                     <a className="nav_main_desc">
-                        <GiWoodPile className="logo_navbar"/>
+                        {/*<GiWoodPile className="logo_navbar"/>*/}
+                        <h4>ЛЕСТНИЧНЫЙ КАЛЬКУЛЯТОР</h4>
                     </a>
 
                     <div>

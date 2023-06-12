@@ -8,10 +8,11 @@
   "nav type type"
   "nav type type";
 
-
   grid-template-rows: 480px 40%;
   grid-template-columns: 1fr 4fr;
-  background: rgb(216, 255, 254);
+  /*background: rgb(216, 255, 254);*/
+  background: url("./Images/wood-bg.jpg");
+  background-size: 100%;
   /* grid-gap: 10px; */
 
   padding-top: 10rem;
