@@ -8,7 +8,6 @@ import MaterialsViewItem from "../MaterialView/MaterialsViewItem";
 function StairTypeView(props) {
 
     let state = props.typesPage
-    debugger
     return (
         <div className={s.allBlock}>
             <div className={m.imageBlock}>

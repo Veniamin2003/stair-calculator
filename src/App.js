@@ -7,64 +7,87 @@ import AnderStageContainer from "./Components/AnderStage/AnderStageContainer";
 import PaintTypeContainer from "./Components/PaintType/PaintTypeContainer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
-import StairTypeViewContainer from "./Components/ImageView/StairsTypeView/StairTypeViewContainer/StairTypeViewContainer";
+import StairTypeViewContainer
+    from "./Components/ImageView/StairsTypeView/StairTypeViewContainer/StairTypeViewContainer";
 import Footer from "./Components/Footer/Footer";
 import NavCalc from "./Components/NavTop/NavCalc";
 import NavbarContainer from "./Components/Navbar/NavbarContainer";
 import {ExportExcel} from "./Pages/ExportPage/ExportExcel";
 import ExportExcelContainer from "./Pages/ExportPage/ExportExcelContainer";
-import RailTypeContainer from "./Components/RailType/RailTypeContainer";
-
-import img from "./Images/wood-bg.jpg"
+import AdminPanel from "./AdminPanel/AdminPanel";
+import StairTypesPage from "./Pages/ResultsPage";
+import MaterialsTypesPage from "./Pages/MaterialTypesPage.js";
+import AnderStagePage from "./Pages/AnderSatgePage";
+import PaintTypePage from "./Pages/PaintTypePage";
+import RailPage from "./Pages/RailPage";
+import CountStagePage from "./Pages/CountStagePage";
+import ResultsPage from "./Pages/ResultsTypesPage";
+import ExportExcelPage from "./Pages/ExportExcelPage";
+import LoginContainer from "./AdminPanel/Login/LoginContainer";
+import AdminPanelContainer from "./AdminPanel/AdminPanelContainer";
+import WallMaterialsTypesContainer from "./Components/WallMaterialsType/WallMaterialsTypesContainer";
+import WallMaterialsTypePage from "./Pages/WallMaterialsTypePage";
+import DeleteContainer from "./AdminPanel/DeletePanel/DeleteContainer";
 
 function App(props) {
-    debugger
     return (
         <BrowserRouter>
-            <NavCalc />
-            <div className='app-wrapper'>
-                <StairTypeViewContainer />
-                <NavbarContainer/>
-                <div className='app-wrapper-content'>
-                    <Routes>
-                        <Route path='/'
-                               element={<StairsTypesContainer />}/>
+            <NavCalc/>
+            <div>
+                <Routes>
+                    <Route path='/'
+                           element={<StairTypesPage/>}/>
 
-                        <Route path='/stair-types'
-                               element={<StairsTypesContainer />}/>
+                    <Route path='/calc'
+                           element={<StairTypesPage/>}/>
 
-                        <Route path='/rails'
-                               element={<RailTypeContainer />}/>
+                    <Route path='/calc/stair-types'
+                           element={<StairTypesPage/>}/>
 
-                        <Route path='/stair-material'
-                               element={<MaterialsContainer />}/>
+                    <Route path='/calc/stair-material'
+                           element={<MaterialsTypesPage/>}/>
 
-                        {<Route path='/ander-stage-type'
-                                element={<AnderStageContainer />}/>}
+                    {<Route path='/calc/ander-stage-type'
+                            element={<AnderStagePage/>}/>}
 
-                        <Route path='/paint-type'
-                               element={<PaintTypeContainer />}/>
+                    <Route path='/calc/paint-type'
+                           element={<PaintTypePage />}/>
 
-                        <Route path='/stair-size'
-                               element={<CountStagesContainer />}/>
+                    <Route path='/calc/rails'
+                           element={<RailPage/>}/>
 
-                        <Route path='/form'
-                               element={<ResultsContainer />}/>
+                    <Route path='/calc/wall-materials'
+                           element={<WallMaterialsTypePage />}/>
 
-                        <Route path='/export'
-                               element={<ExportExcelContainer />}/>
-                    </Routes>
+                    <Route path='/calc/stair-size'
+                           element={<CountStagePage/>}/>
+
+                    <Route path='/calc/form'
+                           element={<ResultsPage/>}/>
+
+                    <Route path='/calc/export'
+                           element={<ExportExcelPage/>}/>
+
+                    <Route path='/calc/add'
+                           element={<LoginContainer/>}/>
+
+                    <Route path='/calc/delete-panel'
+                           element={<DeleteContainer/>}/>
+
+                    <Route path='/calc/admin-panel'
+                           element={<AdminPanelContainer/>}/>
 
 
-                </div>
+                </Routes>
+
 
             </div>
-            <Footer />
+            <Footer/>
         </BrowserRouter>
 
 
         /*<div>
-            <StairsTypesContainer/>
+            <WallMaterialsTypesContainer/>
             <MaterialsContainer />
             <AnderStageContainer />
             <CountStagesContainer />

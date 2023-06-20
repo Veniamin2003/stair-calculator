@@ -1,5 +1,6 @@
 .typesLayer {
-    margin: 10px 20px 20px 30px;
+    grid-area: type;
+    margin: 10px 1rem 0 1rem;
 }
 
 ul {

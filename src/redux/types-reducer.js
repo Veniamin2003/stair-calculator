@@ -43,7 +43,21 @@ const COUNT_ALL_SUM = 'COUNT_ALL_SUM';
 const UPDATE_ANDER_STAGE = 'UPDATE_ANDER_STAGE';
 const UPDATE_PAINT_TYPE = 'UPDATE_PAINT_TYPE';
 const UPDATE_RAIL_TYPE = 'UPDATE_RAIL_TYPE';
+const UPDATE_WALL_MATERIAL = 'UPDATE_WALL_MATERIAL';
 
+const ADD_STAIR_TYPE = 'ADD_STAIR_TYPE';
+const UPDATE_ACTIVE_USER = 'UPDATE_ACTIVE_USER';
+
+const ADD_PARAM_RAIL = 'ADD_PARAM_RAIL';
+const ADD_PARAM_WALL_MATERIAL = 'ADD_PARAM_WALL_MATERIAL';
+const ADD_PARAM_STAIR_TYPE = 'ADD_PARAM_STAIR_TYPE';
+
+const UPDATE_DEL_RAIL_ARR = 'UPDATE_DEL_RAIL_ARR';
+const UPDATE_DEL_WALL_MAT_ARR = 'UPDATE_DEL_WALL_MAT_ARR';
+const UPDATE_DEL_STAIR_TYPE_ARR = 'UPDATE_DEL_STAIR_TYPE_ARR';
+
+const DELETE_PARAM_RAIL = 'DELETE_PARAM_RAIL';
+const DELETE_PARAM_WALL_MAT = 'DELETE_PARAM_WALL_MAT';
 
 let initialState = {
     stairsTypes: [
@@ -64,6 +78,32 @@ let initialState = {
         {id: 4, name: 'Дуб', img: oakCard, viewImg: oak, price: 2500, description: "Имеет низкую теплопроводность – ступени будут теплыми на ощупь"},
     ],
 
+    wallMaterials: [
+        {
+            id: 1,
+            name: 'Газобетон/Пеноблок',
+            img: "https://blog.technogroup-kzn.ru/wp-content/uploads/2020/06/penobet-3.jpg" ,
+            price: 0,
+            description: "Крепление лестницы к данному материалу не состовляет сильных трудозатрат."
+        },
+        {
+            id: 2,
+            name: 'Дерево',
+            img: "https://www.lodgers.ru/upload/018/u1898/b/1/24f5e5d2.jpg",
+            price: 0,
+            description: "Крепление лестницы к данному материалу не состовляет сильных трудозатрат."
+        },
+        {
+            id: 3,
+            name: 'Кирпич',
+            img: "https://almode.ru/uploads/posts/2021-04/1619780619_12-p-imitatsiya-kirpichnoi-kladki-v-gostinoi-12.jpg",
+            price: 0,
+            description: "Крепление лестницы к данному материалу состовляет незначительные трудозатраты."
+        },
+    ],
+
+    selectedWallMaterialId: 1,
+
     stairsSize: {
         size: [
             {id: 1, name: 'Ширина марша'},
@@ -79,12 +119,39 @@ let initialState = {
     paintType:
         {
             paintTypeItems:[
-                {id: 1, name:'Шлифовка', img: paint1, viewImg: paintView1, price: 0, description:"Лестница принимает свой истиный облик. Только натуральный цвет" },
-                {id: 2, name:'Лакировка', img: paint2, viewImg: paintView2, price: 300, description:"Лестница принимает свой истиный облик. Только натуральный цвет" },
-                {id: 3, name:'Тонировка', img: paint3, viewImg: paintView3, price: 700, description:"Лестница принимает свой истиный облик. Только натуральный цвет"},
+                {id: 1, name:'Шлифовка', img: paint1, viewImg: paintView1, price: 300, description:"Лестница принимает свой истиный облик. Только натуральный цвет.  Стоимость за 1 п.м. - 300 руб." },
+                {id: 2, name:'Лакировка', img: paint2, viewImg: paintView2, price: 600, description:"Лестница принимает свой истиный облик. Только натуральный цвет" },
+                {id: 3, name:'Тонировка', img: paint3, viewImg: paintView3, price: 900, description:"Лестница принимает свой истиный облик. Только натуральный цвет"},
             ],
             selectedPaintTypeId: 1,
         },
+
+    railTypes: [
+        {
+            id: 1,
+            name: "Деревянные",
+            img: "https://hotbox.3d-stl.com/medialibrary/34a/34af0507248c0cbe30df1a7625435b9d.jpg",
+            price: 3000,
+            description: "Деревянные перила хорошо вписываются в практически любой интерьей. Является самым распространенным видом ограждений. Цена за 1 п.м. = 3000"
+        },
+        {
+            id: 2,
+            name: "Кованные",
+            img: "https://kovka-ajur.ru/files/catalog/upload/bddeac6fadaf3ab4713e0a63ecc504eb.jpg",
+            price: 4500,
+            description: "В общественных заведениях кованые перила для лестниц могут стать фирменной фишкой. Цена за 1 п.м. = 4500"
+        }
+    ],
+
+    users: [
+        {id: 1, name: "Вениамин", surname: "Петров", login: "veniapetrov941@gmail.com", password: "VeniaVeniaVenia2003"}
+    ],
+
+    idAU: "",
+    nameAU: "",
+    surnameAU: "",
+    loginAU: "",
+    passwordAU: "",
 
     stairsTypesParams : {
         selectedStairsTypesId: 1,
@@ -105,10 +172,13 @@ let initialState = {
         selectedRailId: 1,
     },
 
+    activeDelArr: "rail",
+
 
     paintTypeSum: 0,
     ppp: 0,
     allSum: 0,
+    wallMaterialTypeSum: 0,
 
     countStages: 0,
     stairsWidth: 0,
@@ -123,7 +193,8 @@ let initialState = {
     railTypeName: "<<не выбрано>>",
     materialName: "<<не выбрано>>",
     underStageType: "<<не выбрано>>",
-    paintTypeName: "<<не выбрано>>"
+    paintTypeName: "<<не выбрано>>",
+    wallMaterialTypeName: "<<не выбрано>>",
 };
 
 const typesReducer = (state = initialState, action) => {
@@ -144,12 +215,20 @@ const typesReducer = (state = initialState, action) => {
                 materialName: action.materialName
             };
 
+        case UPDATE_WALL_MATERIAL:
+            return {
+                ...state,
+                wallMaterialTypeSum: action.price,
+                selectedWallMaterialId: action.selectedId,
+                wallMaterialTypeName: action.wallMaterialName
+            };
+
         case UPDATE_RAIL_TYPE:
             return {
                 ...state,
                 railTypeSum: action.price,
                 selectedRailId: action.selectedId,
-                railTypeName: action.railTypeName
+                railTypeName: action.railTypeName,
             };
 
         case UPDATE_WIDTH_STAGES:
@@ -208,7 +287,6 @@ const typesReducer = (state = initialState, action) => {
             };
 
         case COUNT_ALL_SUM:
-            debugger
             return {
                 ...state,
                 allSum: (state.typeSum + state.materialSum + state.anderStageSum
@@ -231,6 +309,105 @@ const typesReducer = (state = initialState, action) => {
                 paintTypeName: action.paintTypeName
             };
 
+        case UPDATE_ACTIVE_USER:
+            return {
+                ...state,
+                idAU: action.id,
+                nameAU: action.name,
+                surnameAU: action.surnameAU,
+                loginAU: action.login,
+                passwordAU: action.password
+            };
+
+        case ADD_PARAM_RAIL:
+            let newRail = {
+                id: action.id,
+                name: action.name,
+                img: action.img,
+                price: action.price,
+                description: action.description,
+            };
+            return {
+                ...state,
+                railTypes: [...state.railTypes, newRail],
+            };
+
+        case ADD_PARAM_WALL_MATERIAL:
+            let newWallMaterial = {
+                id: action.id,
+                name: action.name,
+                img: action.img,
+                price: action.price,
+                description: action.description,
+            };
+            return {
+                ...state,
+                wallMaterials: [...state.wallMaterials, newWallMaterial],
+            };
+
+        case ADD_PARAM_STAIR_TYPE:
+            let newStairType = {
+                id: action.id,
+                name: action.name,
+                img: action.img,
+                viewImg: action.viewImg,
+                price: action.price,
+                description: action.description,
+            };
+            return {
+                ...state,
+                stairsTypes: [...state.stairsTypes, newStairType],
+            };
+
+        case ADD_STAIR_TYPE: {
+            let newStairType = {
+                id: 5,
+                name: '5',
+                img: type1,
+                price: 555,
+                viewImg: type1Card,
+                description: "Описание 555"
+            };
+            return {
+                ...state,
+                stairsTypes: [...state.stairsTypes, newStairType],
+            };
+        }
+
+        case DELETE_PARAM_RAIL: {
+            return {
+                ...state,
+                railTypes: [...state.railTypes.filter(param => param.id !== action.id)],
+            };
+        }
+
+        case DELETE_PARAM_WALL_MAT: {
+            return {
+                ...state,
+                wallMaterials: [...state.wallMaterials.filter(param => param.id !== action.id)],
+            };
+        }
+
+        case UPDATE_DEL_RAIL_ARR:
+            debugger
+            return {
+                ...state,
+                activeDelArr: action.name,
+            };
+
+        case UPDATE_DEL_WALL_MAT_ARR:
+            debugger
+            return {
+                ...state,
+                activeDelArr: action.name,
+            };
+
+        case UPDATE_DEL_STAIR_TYPE_ARR:
+            return {
+                ...state,
+                activeDelArr: action.name,
+            };
+
         default:
             return state;
     }
@@ -238,6 +415,7 @@ const typesReducer = (state = initialState, action) => {
 
 export const updateTypeAC = (price, selectedId, name) => ({type: UPDATE_TYPE, price: price, selectedId: selectedId, stairTypeName: name})
 export const updateMaterialAC = (price, selectedId, name) => ({type: UPDATE_MATERIAL, price: price, selectedId: selectedId, materialName: name})
+export const updateWallMaterialAC = (price, selectedId, name) => ({type: UPDATE_WALL_MATERIAL, price: price, selectedId: selectedId, wallMaterialName: name})
 
 export const updateWidthStagesAC = (count) => ({type: UPDATE_WIDTH_STAGES, newCount: count})
 export const updateHeightStagesAC = (count) => ({type: UPDATE_HEIGHT_STAGES, newCount: count})
@@ -247,10 +425,27 @@ export const updateLedgeAC = (count) => ({type: UPDATE_LEDGE_STAGES, newCount: c
 export const updateStringAC = (count) => ({type: UPDATE_STRING_STAGES, newCount: count})
 
 
+
 export const countAllSumAC = () => ({type: COUNT_ALL_SUM})
 export const updateAnderStageAC = (price, selectedId, name) => ({type: UPDATE_ANDER_STAGE, price: price, selectedId: selectedId, underStageType: name})
 export const updatePaintTypeAC = (price, selectedId, name) => ({type: UPDATE_PAINT_TYPE, price: price, selectedId: selectedId, paintTypeName: name})
 export const updateRailTypeAC = (price, selectedId, name) => ({type: UPDATE_RAIL_TYPE, price: price, selectedId: selectedId, railTypeName: name})
+
+export const updateActiveUserAC = (id, name, surname, login, password) => ({type: UPDATE_ACTIVE_USER, id: id, name: name, surname: surname, login: login, password: password});
+
+export const addParamRailAC = (id, name, price, description, img) => ({type: ADD_PARAM_RAIL, id: id, name: name, price: price, description: description, img: img});
+export const addParamWallMaterialAC = (id, name, price, description, img) => ({type: ADD_PARAM_WALL_MATERIAL, id: id, name: name, price: price, description: description, img: img});
+export const addParamStairTypeAC = (id, name, price, description, img, viewImg) => ({type: ADD_PARAM_STAIR_TYPE, id: id, name: name, price: price, description: description, img: img, viewImg: viewImg});
+
+export const deleteRailTypeAC = (id) => ({type: DELETE_PARAM_RAIL, id: id});
+export const deleteWallMatTypeAC = (id) => ({type: DELETE_PARAM_WALL_MAT, id: id});
+
+export const updateActiveArrRailAC = (name) => ({type: UPDATE_DEL_RAIL_ARR, name: name})
+export const updateActiveArrWallMatAC = (name) => ({type: UPDATE_DEL_WALL_MAT_ARR, name: name})
+export const updateActiveStairTypeAC = (name) => ({type: UPDATE_DEL_STAIR_TYPE_ARR, name: name})
+
+
+export const addStairTypeAC = () => ({type: ADD_STAIR_TYPE})
 
 export default typesReducer;
 

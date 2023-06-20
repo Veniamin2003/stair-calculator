@@ -1,5 +1,5 @@
 import React from 'react'
-/*import icon from '../../Images/StairsTypes/Result/icon.png'*/
+/*import icon from '../../Images/WallMaterial/Result/icon.png'*/
 import s from './Results.module.css'
 import Contact from "../Contact/Contact";
 
@@ -19,7 +19,8 @@ function ResultsView(props) {
     \nПодступенок: ${state.underStageType}; 
     \nЛакокрасочное покрытие: ${state.paintTypeName}; 
     \nНаличие перил: ${state.railTypeName}; 
-    \nПримерная стоимость = ${state.allSum}.`;
+    \nМатериал стен: ${state.wallMaterialTypeName}; 
+    \n\nПримерная стоимость = ${state.allSum}.`;
 
     return (
         <div className={s.typesLayer}>

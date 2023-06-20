@@ -48,6 +48,11 @@
     bottom: -4px;
     left: 20px;
 }
+
+.nav_main_desc {
+    font-weight: bold;
+    font-size: 22px;
+}
 #mobile {
     display: none;
 }

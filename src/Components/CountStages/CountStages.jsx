@@ -40,7 +40,9 @@ function CountStages(props) {
     return (
         <div className={s.typesLayer}>
             <div className={s.containerType}>
+                <h2>Введите размеры вышей лестницы</h2>
                 <div className={s.parent}>
+
                     <div>
                         <div className={s.child}>
                             <div>

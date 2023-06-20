@@ -1,7 +1,11 @@
 .nav {
+    background-color: rgba(27,38,44, 0.9);
     grid-area: nav;
+    margin-top: -160px;
+    margin-bottom: 2rem;
+    border-bottom-right-radius: 30px;
     padding-left: 10%;
-    padding-top: 10%;
+    padding-top: 30%;
 }
 
 .item {
@@ -16,7 +20,7 @@
     margin-top: 15px;
 
     border-radius: 10px;
-    background: rgb(27, 38, 44);
+    background: rgba(86, 123, 129, 0.6);
     transition: 0.2s;
 
     /*padding-left: 10px;*/

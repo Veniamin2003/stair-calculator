@@ -1,9 +1,12 @@
 .export_container {
-    margin-top: 5rem;
+    grid-area: type;
+    margin-left: 2rem;
+
+    margin-top: 8rem;
     margin-bottom: 5rem;
-    width: 90%;
+    width: 95%;
     height: 700px;
-    background: rgba(238, 251, 255, 0.62);
+    background: #cadfe3;
     border: 1px solid rgba(40, 44, 52, 0.29);
     border-radius: 25px;
 }

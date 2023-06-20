@@ -1,19 +1,18 @@
 {
-  "railTypes":
-          [
-            {
-              "id": "1",
-              "name": "Открытая, без перил",
-              "img": "img/Rail/rail-1.jpg",
-              "price": "0",
-              "description": "Описание прямой лестницы"
-            },
-            {
-              "id": "2",
-              "name": "Закрытая, с перилами",
-              "img": "img/Rail/rail-2.jpg",
-              "price": "1000",
-              "description": "Описание прямой лестницы"
-            }
-          ]
+  "railTypes": [
+    {
+      "id": "1",
+      "name": "Открытая, без перил",
+      "img": "https://lestnici-na-zakaz.kiev.ua/wp-content/uploads/2020/11/stairway-idea-design_37.jpg",
+      "price": "0",
+      "description": "Описание прямой лестницы"
+    },
+    {
+      "id": "2",
+      "name": "Закрытая, с перилами",
+      "img": "https://i.pinimg.com/736x/e0/e3/8e/e0e38e0230945625f288b8041a2e0f23--banister-remodel-iron-spindles.jpg",
+      "price": "1000",
+      "description": "Описание лестницы"
+    }
+  ]
 }

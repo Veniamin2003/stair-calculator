@@ -1,5 +1,8 @@
 .contact {
-    margin: 0;
+    margin-top: 7rem;
+    margin-bottom: 5rem;
+    background: #cadfe3;
+    border-radius: 30px;
 }
 
 .container.contact__container {
@@ -8,7 +11,7 @@
     grid-template-columns: 30% 50%;
     gap: 12%;
     padding-bottom: 5rem;
-
+    padding-left: 5rem;
 }
 
 .contact__options {

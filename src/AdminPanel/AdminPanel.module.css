@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&display=swap');
+
+.admin_container {
+    display: grid;
+
+    align-items: center;
+    justify-items: center;
+
+    margin-top: 5rem;
+    width: 100vw;
+    height: 120vh;
+
+    background-color: #b8c4e7;
+    font-family: 'Raleway', sans-serif;
+}
+
+.admin_block {
+    height: 90%;
+    width: 80%;
+    border-radius: 30px;
+    background-color: rgba(141, 189, 189, 0.64);
+    box-shadow: 0 0 25px rgba(58, 89, 93, 0.71);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.admin_block h2 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 38px;
+}
+
+.form__block {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    align-items: center;
+}
+
+.form__content {
+    background: rgba(219, 112, 147, 0.76);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(58, 89, 93, 0.71);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 100px;
+    margin-left: 0;
+    width: 50%;
+    height: auto;
+}
+.form__content h3 {
+    font-size: 24px;
+    margin-bottom: 2rem;
+}
+
+.form__content p {
+}
+.form__content select {
+    background-color: rgb(237, 246, 253);
+    box-shadow: 0 0 3px rgba(58, 89, 93, 0.71);
+    border-radius: 4px;
+    width: 80%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.params__block, .params__block_desc, .form__content p {
+    color: black;
+    margin-top: 10px;
+
+}
+
+.params__block input {
+    background-color: rgb(237, 246, 253);
+    box-shadow: 0 0 3px rgba(58, 89, 93, 0.71);
+    margin-top: 10px;
+    font-size: 16px;
+    width: 80%;
+    height: 40px;
+    resize: none;
+    border-radius: 4px;
+}
+
+.params__block_desc {
+}
+
+.params__block_desc textarea {
+    background-color: rgb(237, 246, 253);
+    box-shadow: 0 0 3px rgba(58, 89, 93, 0.71);
+    margin-top: 10px;
+    font-size: 16px;
+    width: 80%;
+    height: 100px;
+    border-radius: 4px;
+}
+
+.btn {
+    margin-top: 40px;
+    width: 80%;
+    height: 50px;
+    background-color: rgba(161, 213, 213, 0.84);
+    font-size: 16px;
+    color: #1d2e34;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 1px solid rgba(34, 58, 58, 0.29);
+    transition: all 600ms ease;
+}
+
+.btn:hover {
+    background: transparent;
+    border: 1px solid rgba(34, 58, 58, 0.82);
+}
+.btn__delete:hover {
+    background: transparent;
+    border: 1px solid rgba(56, 18, 31, 0.76);
+}
+
+.btn__delete {
+    margin-top: 10px;
+    background-color: rgba(161, 213, 213, 0.84);
+    width: 80%;
+    height: 50px;
+    font-size: 16px;
+    color: #1d2e34;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 1px solid rgba(86, 61, 56, 0.29);
+    transition: all 600ms ease;
+}
+
+.img__block {
+    width: 50%;
+    padding-left: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.img__block img {
+    width: 600px;
+}

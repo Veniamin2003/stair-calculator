@@ -1,5 +1,4 @@
 import React from "react";
-import {updateMaterialAC} from "../../redux/types-reducer";
 import {connect} from "react-redux";
 import {updatePaintTypeAC} from "../../redux/types-reducer";
 import PaintType from "./PaintType";

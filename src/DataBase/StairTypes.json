@@ -1,13 +1,12 @@
 {
-  "stairsTypes":
-          [
-            {
-              "id": "1",
-              "name": "Прямая лестница без площадки",
-              "img": "img/1.jpg",
-              "price": "700",
-              "viewImg": "img/1.png",
-              "description": "Описание прямой лестницы"
-            }
-          ]
+  "stairsTypes": [
+    {
+      "id": "1",
+      "name": "Прямая лестница без площадки",
+      "img": "img/1.jpg",
+      "price": "700",
+      "viewImg": "img/1.png",
+      "description": "Описание прямой лестницы"
+    }
+  ]
 }

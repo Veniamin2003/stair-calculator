@@ -9,13 +9,12 @@ function PaintType(props) {
         props.updatePaintTypeId(price, selectedId, name);
     }
     return (
-        <div>
-            <div className={s.typesLayer}>
-                {state.paintType.paintTypeItems.map(el => <PaintTypeItem id={el.id} img={el.img} name={el.name} description={el.description}
-                                                          price={el.price} paintTypeSum={state.paintTypeSum}
-                                                          selectedId={state.selectedPaintTypeId} updatePaintType={updatePaintType}/>)}
-            </div>
-
+        <div className={s.typesLayer}>
+            {state.paintType.paintTypeItems.map(el => <PaintTypeItem id={el.id} img={el.img} name={el.name}
+                                                                     description={el.description}
+                                                                     price={el.price} paintTypeSum={state.paintTypeSum}
+                                                                     selectedId={state.selectedPaintTypeId}
+                                                                     updatePaintType={updatePaintType}/>)}
         </div>
     )
 }
