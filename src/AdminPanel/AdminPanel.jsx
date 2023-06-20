@@ -76,6 +76,11 @@ function AdminPanel(props) {
         navigate('/calc/delete-panel');
     }
 
+    const openTasks = () => {
+        navigate('/calc/show-tasks-admin');
+    }
+
+
     return (
         <div className={s.admin_container}>
             <div className={s.admin_block}>
@@ -112,6 +117,7 @@ function AdminPanel(props) {
 
                         <button onClick={addParam} className={s.btn}>Добавить</button>
                         <button onClick={openDelete} className={s.btn__delete}>Перейти в панель удаления</button>
+                        <button onClick={openTasks} className={s.btn__task}>Посмотреть активные заявки</button>
                     </div>
                     <div className={s.img__block}>
                         <img src={img}/>

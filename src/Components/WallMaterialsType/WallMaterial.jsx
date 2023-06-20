@@ -2,6 +2,7 @@ import React from 'react'
 import s from './../ContainerCSSModule/Container.module.css'
 import WallMaterialsItem from "./Types/WallMaterialsItem";
 
+
 function WallMaterial(props) {
     let state = props.typesPage
 

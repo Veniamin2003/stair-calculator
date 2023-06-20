@@ -40,6 +40,11 @@ class NavCalc extends Component {
                         <ul id="navbar" onClick={this.handleClick}
                             className={this.state.clicked ? "#navbar active" : "#navbar"}>
                             <li>
+                                <NavLink to='/calc/login'>
+                                    <div className={s.text}>Личный кабинет</div>
+                                </NavLink>
+                            </li>
+                            <li>
                                 <NavLink to='/calc/add'>
                                     <div className={s.text}>Панель администратора</div>
                                 </NavLink>

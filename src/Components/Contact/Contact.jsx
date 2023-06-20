@@ -7,10 +7,37 @@ import {FaTelegramPlane} from "react-icons/fa"
 import {ImWhatsapp} from "react-icons/im"
 import emailjs from "emailjs-com"
 
-const Contact = ({text}) => {
+const Contact = (props) => {
     const form = useRef();
 
     const navigate = useNavigate();
+    let state = props.state
+
+
+    let textTask = `Параметры моей лестницы: 
+    \nВысота: ${state.stairsHeight}см; 
+    \nШирина: ${state.stairsWidth}см;
+    \nДлина проема: ${state.stairsLength}см; 
+    \nТолщина ступеней: ${state.stairsThick}см;  
+    \nВыступ от края ступени: ${state.stairsLedge}см;  
+    \nТолщина тетивы: ${state.stairsString}см;  
+    \nКол-во ступеней ≈ ${state.countStages}; 
+    \n\nФорма лестницы: ${state.stairTypeName}; 
+    \nМатериал изготовления: ${state.materialName}; 
+    \nПодступенок: ${state.underStageType}; 
+    \nЛакокрасочное покрытие: ${state.paintTypeName}; 
+    \nНаличие перил: ${state.railTypeName}; 
+    \nМатериал стен: ${state.wallMaterialTypeName}; 
+    \n\nПримерная стоимость = ${state.allSum}.`;
+
+    let addTask = () => {
+        debugger
+        let id = state.tasks.length + 1;
+        props.addTask(
+            id, state.allSum, state.stairsHeight, state.stairsWidth,
+            state.stairsLength, state.stairsThick, state.stairsLedge, state.stairsString, state.countStages, state.stairTypeName,
+            state.materialName, state.underStageType, state.paintTypeName, state.railTypeName, state.wallMaterialTypeName, state.nameClient, state.lnameClient);
+    }
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -19,6 +46,8 @@ const Contact = ({text}) => {
         emailjs.sendForm('service_w6mi3gs', 'template_b3e10fs', form.current, 'kwzRAgWDedV5MOCo-') // на info@veniamin-petrov.ru
 
         e.target.reset();
+
+        addTask();
     };
 
     return (
@@ -54,10 +83,10 @@ const Contact = ({text}) => {
                 </div>
 
                 <form ref={form} onSubmit={sendEmail}>
-                    <input type="text" name="name" placeholder="Ваше полное имя" required />
-                    <input type="phone" name="phone" placeholder="Ваш номер телефона" required />
+                    <input type="text" name="name" placeholder={state.nameClient} required />
+                    <input type="phone" name="phone" placeholder={state.phoneClient} required />
                     <textarea name="comment" rows="2" placeholder="Оставьте комментарий" required  />
-                    <textarea name="message" rows="15" placeholder="Опишите параметры вашей лестницы" value={text} required  />
+                    <textarea name="message" rows="15" placeholder="Опишите параметры вашей лестницы" value={textTask} required  />
                     <button type="submit" className="btn btn-primary">Жду вашего звонка</button>
 
                 </form>

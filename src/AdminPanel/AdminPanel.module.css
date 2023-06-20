@@ -11,6 +11,7 @@
     height: 120vh;
 
     background-color: #b8c4e7;
+
     font-family: 'Raleway', sans-serif;
 }
 
@@ -123,6 +124,18 @@
 .btn__delete {
     margin-top: 10px;
     background-color: rgba(161, 213, 213, 0.84);
+    width: 80%;
+    height: 50px;
+    font-size: 16px;
+    color: #1d2e34;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 1px solid rgba(86, 61, 56, 0.29);
+    transition: all 600ms ease;
+}
+.btn__task {
+    margin-top: 10px;
+    background-color: rgba(132, 169, 194, 0.84);
     width: 80%;
     height: 50px;
     font-size: 16px;

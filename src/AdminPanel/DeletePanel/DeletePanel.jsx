@@ -15,24 +15,28 @@ function AdminPanel(props) {
 
     let paramsArr;
 
-    if (activeDelArr === "rail" || activeDelArr === ""){
+    if (activeDelArr === "stair-type"){
+        paramsArr = state.stairsTypes;
+    }
+    else if (activeDelArr === "rail" || activeDelArr === ""){
         paramsArr = state.railTypes;
     }
     else if (activeDelArr === "wallMaterial"){
         paramsArr = state.wallMaterials;
     }
-    else if (activeDelArr === "stair-type"){
-        paramsArr = state.stairsTypes;
-    }
+
 
     let deleteParam = (id) => {
-        debugger
-        if (activeDelArr === "rail") {
-            props.deleteRailType(id);
+        if (activeDelArr === "stair-type") {
+            props.deleteStairType(id);
             alert("Параметр успешно удален");
         }
-        if (activeDelArr === "wallMaterial") {
+        else if (activeDelArr === "wallMaterial") {
             props.deleteWallMatType(id);
+            alert("Параметр успешно удален");
+        }
+        else if (activeDelArr === "rail") {
+            props.deleteRailType(id);
             alert("Параметр успешно удален");
         }
     };

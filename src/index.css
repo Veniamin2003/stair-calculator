@@ -24,7 +24,7 @@ code {
   /*--color-bg: linear-gradient(90deg, rgba(244,247,255,1) 0%, rgba(229,235,255,1) 0%, rgba(244,247,255,1) 100%);*/
   --color-bg: #e9eeff;
   --color-bg-variant: #2c2c6c;
-  --color-primary: rgb(77, 181, 255);
+  --color-primary: #4DB5FFFF;
   --color-primary-variant: rgba(77, 181, 255, 0.4);
   --color-white: #ffffff;
   --color-black: rgba(6, 9, 45, 0.82);

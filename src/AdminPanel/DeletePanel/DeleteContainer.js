@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
-    deleteRailTypeAC, deleteWallMatTypeAC,
+    deleteRailTypeAC, deleteStairTypeAC, deleteWallMatTypeAC,
     updateActiveArrRailAC,
     updateActiveArrWallMatAC, updateActiveStairTypeAC,
     updateActiveUserAC
@@ -22,6 +22,10 @@ let mapDispatchToProps = (dispatch) => {
         },
         deleteWallMatType: (id) => {
             let action = deleteWallMatTypeAC(id);
+            dispatch(action);
+        },
+        deleteStairType: (id) => {
+            let action = deleteStairTypeAC(id);
             dispatch(action);
         },
 

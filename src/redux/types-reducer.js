@@ -46,7 +46,9 @@ const UPDATE_RAIL_TYPE = 'UPDATE_RAIL_TYPE';
 const UPDATE_WALL_MATERIAL = 'UPDATE_WALL_MATERIAL';
 
 const ADD_STAIR_TYPE = 'ADD_STAIR_TYPE';
+
 const UPDATE_ACTIVE_USER = 'UPDATE_ACTIVE_USER';
+const UPDATE_ACTIVE_CLIENT = 'UPDATE_ACTIVE_CLIENT';
 
 const ADD_PARAM_RAIL = 'ADD_PARAM_RAIL';
 const ADD_PARAM_WALL_MATERIAL = 'ADD_PARAM_WALL_MATERIAL';
@@ -58,6 +60,15 @@ const UPDATE_DEL_STAIR_TYPE_ARR = 'UPDATE_DEL_STAIR_TYPE_ARR';
 
 const DELETE_PARAM_RAIL = 'DELETE_PARAM_RAIL';
 const DELETE_PARAM_WALL_MAT = 'DELETE_PARAM_WALL_MAT';
+const DELETE_PARAM_STAIR = 'DELETE_PARAM_STAIR';
+
+const DELETE_TASK = 'DELETE_TASK';
+
+
+const ADD_TASK = 'ADD_TASK';
+const ADD_USER = 'ADD_USER';
+
+
 
 let initialState = {
     stairsTypes: [
@@ -72,10 +83,10 @@ let initialState = {
     ],
 
     materials: [
-        {id: 1, name: 'Лиственица', img: larchCard , viewImg: larch, price: 800, description: "Высокая сопротивляемость влаги, короблению, гниению"},
-        {id: 2, name: 'Бук экстра', img: beechCard, viewImg: beech, price: 1900, description: "Имеет натуральный красивый цвет, обладает высокой прочностью"},
-        {id: 3, name: 'Сосна', img: pineCard, viewImg: pine, price: 1000, description: "Ступени из дуба всегда имеют более темный и благородный оттенок, чем аналоги"},
-        {id: 4, name: 'Дуб', img: oakCard, viewImg: oak, price: 2500, description: "Имеет низкую теплопроводность – ступени будут теплыми на ощупь"},
+        {id: 1, name: 'Лиственица', img: larchCard , viewImg: larch, price: 800, description: "Высокая сопротивляемость влаги, короблению, гниению. Цена за 1 п.м. - 800 руб."},
+        {id: 2, name: 'Бук экстра', img: beechCard, viewImg: beech, price: 1900, description: "Имеет натуральный красивый цвет, обладает высокой прочностью. Цена за 1 п.м. - 1900 руб."},
+        {id: 3, name: 'Сосна', img: pineCard, viewImg: pine, price: 1000, description: "Ступени из дуба всегда имеют более темный и благородный оттенок, чем аналоги. Цена за 1 п.м. - 1000 руб."},
+        {id: 4, name: 'Дуб', img: oakCard, viewImg: oak, price: 2500, description: "Имеет низкую теплопроводность – ступени будут теплыми на ощупь. Цена за 1 п.м. - 2500 руб."},
     ],
 
     wallMaterials: [
@@ -84,21 +95,21 @@ let initialState = {
             name: 'Газобетон/Пеноблок',
             img: "https://blog.technogroup-kzn.ru/wp-content/uploads/2020/06/penobet-3.jpg" ,
             price: 0,
-            description: "Крепление лестницы к данному материалу не состовляет сильных трудозатрат."
+            description: "Крепление лестницы не состовляет сильных трудозатрат. Цена за 1 п.м. - 100 руб."
         },
         {
             id: 2,
             name: 'Дерево',
             img: "https://www.lodgers.ru/upload/018/u1898/b/1/24f5e5d2.jpg",
             price: 0,
-            description: "Крепление лестницы к данному материалу не состовляет сильных трудозатрат."
+            description: "Крепление не состовляет сильных трудозатрат. Цена за 1 п.м. - 200 руб."
         },
         {
             id: 3,
             name: 'Кирпич',
             img: "https://almode.ru/uploads/posts/2021-04/1619780619_12-p-imitatsiya-kirpichnoi-kladki-v-gostinoi-12.jpg",
             price: 0,
-            description: "Крепление лестницы к данному материалу состовляет незначительные трудозатраты."
+            description: "Крепление состовляет незначительные трудозатраты. Цена за 1 п.м. - 300 руб."
         },
     ],
 
@@ -113,15 +124,15 @@ let initialState = {
 
     anderStage: [
         { id: 1, name: 'Отсутствует', img: anderSF, viewImg: anderSTF, price: 0, description:"Образует ощущение большего пространства в помещении"},
-        { id: 2, name: 'Присутствует', img: anderST, viewImg: anderSTV, price: 1500, description: "Делает помещение более уютным и теплым"}
+        { id: 2, name: 'Присутствует', img: anderST, viewImg: anderSTV, price: 1500, description: "Делает помещение более уютным и теплым.Цена за 1 п.м. - 1500 руб."}
     ],
 
     paintType:
         {
             paintTypeItems:[
-                {id: 1, name:'Шлифовка', img: paint1, viewImg: paintView1, price: 300, description:"Лестница принимает свой истиный облик. Только натуральный цвет.  Стоимость за 1 п.м. - 300 руб." },
-                {id: 2, name:'Лакировка', img: paint2, viewImg: paintView2, price: 600, description:"Лестница принимает свой истиный облик. Только натуральный цвет" },
-                {id: 3, name:'Тонировка', img: paint3, viewImg: paintView3, price: 900, description:"Лестница принимает свой истиный облик. Только натуральный цвет"},
+                {id: 1, name:'Шлифовка', img: paint1, viewImg: paintView1, price: 300, description:"Лестница принимает свой истиный облик. Только натуральный цвет. Цена за 1 п.м. - 300 руб." },
+                {id: 2, name:'Лакировка', img: paint2, viewImg: paintView2, price: 600, description:"Лестница принимает свой истиный облик. Цена за 1 п.м. - 600 руб." },
+                {id: 3, name:'Тонировка', img: paint3, viewImg: paintView3, price: 900, description:"Лестница принимает свой истиный облик. Цена за 1 п.м. - 900 руб."},
             ],
             selectedPaintTypeId: 1,
         },
@@ -132,19 +143,27 @@ let initialState = {
             name: "Деревянные",
             img: "https://hotbox.3d-stl.com/medialibrary/34a/34af0507248c0cbe30df1a7625435b9d.jpg",
             price: 3000,
-            description: "Деревянные перила хорошо вписываются в практически любой интерьей. Является самым распространенным видом ограждений. Цена за 1 п.м. = 3000"
+            description: "Деревянные перила хорошо вписываются в практически любой интерьей. Цена за 1 п.м. = 3000"
         },
         {
             id: 2,
             name: "Кованные",
             img: "https://kovka-ajur.ru/files/catalog/upload/bddeac6fadaf3ab4713e0a63ecc504eb.jpg",
             price: 4500,
-            description: "В общественных заведениях кованые перила для лестниц могут стать фирменной фишкой. Цена за 1 п.м. = 4500"
+            description: "Кованые перила для лестниц могут стать фирменной фишкой. Цена за 1 п.м. = 4500"
         }
     ],
 
+    tasks:
+        [],
+
     users: [
-        {id: 1, name: "Вениамин", surname: "Петров", login: "veniapetrov941@gmail.com", password: "VeniaVeniaVenia2003"}
+        {id: 1, name: "Вениамин", surname: "Петров", login: "admin", password: "12345"}
+    ],
+
+    usersClient: [
+        {id:1, name: "Вениамин", lname:"Петров", phone: "+7(992)503-66-77", login: "veniamin", password:"12345"},
+        {id:2, name: "Александр", lname:"Николаев", phone: "+7(992)333-62-22", login: "sasha333", password:"12345"},
     ],
 
     idAU: "",
@@ -152,6 +171,15 @@ let initialState = {
     surnameAU: "",
     loginAU: "",
     passwordAU: "",
+
+    idTask: 1,
+
+    idClient: "",
+    nameClient: "",
+    lnameClient: "",
+    phoneClient: "",
+    loginClient: "",
+    passwordClient: "",
 
     stairsTypesParams : {
         selectedStairsTypesId: 1,
@@ -172,7 +200,7 @@ let initialState = {
         selectedRailId: 1,
     },
 
-    activeDelArr: "rail",
+    activeDelArr: "stair-type",
 
 
     paintTypeSum: 0,
@@ -319,6 +347,17 @@ const typesReducer = (state = initialState, action) => {
                 passwordAU: action.password
             };
 
+        case UPDATE_ACTIVE_CLIENT:
+            return {
+                ...state,
+                idClient: action.id,
+                nameClient: action.name,
+                lnameClient: action.lname,
+                phoneClient: action.phone,
+                loginClient: action.login,
+                passwordClient: action.password
+            };
+
         case ADD_PARAM_RAIL:
             let newRail = {
                 id: action.id,
@@ -388,6 +427,20 @@ const typesReducer = (state = initialState, action) => {
             };
         }
 
+        case DELETE_PARAM_STAIR: {
+            return {
+                ...state,
+                stairsTypes: [...state.stairsTypes.filter(param => param.id !== action.id)],
+            };
+        }
+
+        case DELETE_TASK: {
+            return {
+                ...state,
+                tasks: [...state.tasks.filter(param => param.id !== action.id)],
+            };
+        }
+
         case UPDATE_DEL_RAIL_ARR:
             debugger
             return {
@@ -406,6 +459,49 @@ const typesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 activeDelArr: action.name,
+            };
+
+        case ADD_TASK:
+            debugger
+            let newTask = {
+                id: action.id,
+                taskSum: action.allSum,
+                stairsHeight: action.stairsHeight,
+                stairsWidth: action.stairsWidth,
+                stairsLength: action.stairsLength,
+                stairsThick: action.stairsThick,
+                stairsLedge: action.stairsLedge,
+                stairsString: action.stairsString,
+                countStages: action.countStages,
+                stairTypeName: action.stairTypeName,
+                materialName: action.materialName,
+                underStageType: action.underStageType,
+                paintTypeName: action.paintTypeName,
+                railTypeName: action.railTypeName,
+                wallMaterialTypeName: action.wallMaterialTypeName,
+                nameClient: action.nameClient,
+                lnameClient: action.lnameClient,
+            };
+            return {
+                ...state,
+                tasks: [...state.tasks, newTask],
+            };
+
+        case ADD_USER:
+            debugger
+            let idUser = 0;
+
+            let newUserClient = {
+                id: ++idUser,
+                name: action.nameUser,
+                lname: action.lnameUser,
+                phone: action.phoneClient,
+                login: action.loginUser,
+                password: action.passwordUser,
+            };
+            return {
+                ...state,
+                usersClient: [...state.usersClient, newUserClient],
             };
 
         default:
@@ -432,6 +528,7 @@ export const updatePaintTypeAC = (price, selectedId, name) => ({type: UPDATE_PAI
 export const updateRailTypeAC = (price, selectedId, name) => ({type: UPDATE_RAIL_TYPE, price: price, selectedId: selectedId, railTypeName: name})
 
 export const updateActiveUserAC = (id, name, surname, login, password) => ({type: UPDATE_ACTIVE_USER, id: id, name: name, surname: surname, login: login, password: password});
+export const updateActiveClientAC = (id, name, lname, phone, login, password) => ({type: UPDATE_ACTIVE_CLIENT, id: id, name: name, lname: lname, phone: phone, login: login, password: password});
 
 export const addParamRailAC = (id, name, price, description, img) => ({type: ADD_PARAM_RAIL, id: id, name: name, price: price, description: description, img: img});
 export const addParamWallMaterialAC = (id, name, price, description, img) => ({type: ADD_PARAM_WALL_MATERIAL, id: id, name: name, price: price, description: description, img: img});
@@ -439,6 +536,9 @@ export const addParamStairTypeAC = (id, name, price, description, img, viewImg) 
 
 export const deleteRailTypeAC = (id) => ({type: DELETE_PARAM_RAIL, id: id});
 export const deleteWallMatTypeAC = (id) => ({type: DELETE_PARAM_WALL_MAT, id: id});
+export const deleteStairTypeAC = (id) => ({type: DELETE_PARAM_STAIR, id: id});
+
+export const deleteTaskAC = (id) => ({type: DELETE_TASK, id: id});
 
 export const updateActiveArrRailAC = (name) => ({type: UPDATE_DEL_RAIL_ARR, name: name})
 export const updateActiveArrWallMatAC = (name) => ({type: UPDATE_DEL_WALL_MAT_ARR, name: name})
@@ -446,6 +546,31 @@ export const updateActiveStairTypeAC = (name) => ({type: UPDATE_DEL_STAIR_TYPE_A
 
 
 export const addStairTypeAC = () => ({type: ADD_STAIR_TYPE})
+
+export const addTaskAC = (id, allSum, stairsHeight, stairsWidth, stairsLength, stairsThick,
+                          stairsLedge, stairsString, countStages, stairTypeName,
+                          materialName, underStageType, paintTypeName, railTypeName, wallMaterialTypeName, nameClient, lnameClient) =>
+    ({type: ADD_TASK,
+        id: id,
+        allSum: allSum,
+        stairsHeight: stairsHeight,
+        stairsWidth: stairsWidth,
+        stairsLength: stairsLength,
+        stairsThick: stairsThick,
+        stairsLedge: stairsLedge,
+        stairsString: stairsString,
+        countStages: countStages,
+        stairTypeName: stairTypeName,
+        materialName: materialName,
+        underStageType: underStageType,
+        paintTypeName: paintTypeName,
+        railTypeName: railTypeName,
+        wallMaterialTypeName: wallMaterialTypeName,
+        nameClient: nameClient,
+        lnameClient: lnameClient})
+
+export const addUserAC = (nameUser, lnameUser, phoneClient, loginUser, passwordUser) => ({type: ADD_USER, nameUser: nameUser, lnameUser: lnameUser, phoneClient:phoneClient, loginUser: loginUser, passwordUser: passwordUser})
+
 
 export default typesReducer;
 

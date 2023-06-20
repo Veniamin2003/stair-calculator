@@ -28,6 +28,10 @@ import AdminPanelContainer from "./AdminPanel/AdminPanelContainer";
 import WallMaterialsTypesContainer from "./Components/WallMaterialsType/WallMaterialsTypesContainer";
 import WallMaterialsTypePage from "./Pages/WallMaterialsTypePage";
 import DeleteContainer from "./AdminPanel/DeletePanel/DeleteContainer";
+import LoginClientContainer from "./Components/Login/LoginClientContainer";
+import TasksContainer from "./Components/Tasks/TasksContainer";
+import ShowTasksContainer from "./AdminPanel/ShowTasks/ShowTasksContainer";
+import RegContainer from "./Components/Login/Registration/RegContainer";
 
 function App(props) {
     return (
@@ -76,6 +80,18 @@ function App(props) {
 
                     <Route path='/calc/admin-panel'
                            element={<AdminPanelContainer/>}/>
+
+                    <Route path='/calc/login'
+                           element={<LoginClientContainer />}/>
+
+                    <Route path='/calc/my-tasks'
+                           element={<TasksContainer/>}/>
+
+                    <Route path='/calc/show-tasks-admin'
+                           element={<ShowTasksContainer/>}/>
+
+                    <Route path='/calc/registration'
+                           element={<RegContainer />}/>
 
 
                 </Routes>

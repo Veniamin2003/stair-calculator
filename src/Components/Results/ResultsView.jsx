@@ -22,9 +22,13 @@ function ResultsView(props) {
     \nМатериал стен: ${state.wallMaterialTypeName}; 
     \n\nПримерная стоимость = ${state.allSum}.`;
 
+    let addTask = (allSum, homeSelectedType, baseSelectedType) => {
+        props.addTask(allSum, homeSelectedType, baseSelectedType);
+    }
+
     return (
         <div className={s.typesLayer}>
-            <Contact text={text}/>
+            <Contact text={text} addTask={addTask}/>
         </div>
     )
 }
